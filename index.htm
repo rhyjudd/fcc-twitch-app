@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick='sendRequest()'>submit</button>
+    <script>
+        function sendRequest(){    
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET','https://wind-bow.gomix.me/twitch-api/users/noobs2ninjas?callback=?', true);
+        
+            xhr.onload = function(){
+                if(this.status == 200){
+                    var output = JSON.parse(this.responseText); 
+                    console.log(output);        
+                    } 
+                }
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
